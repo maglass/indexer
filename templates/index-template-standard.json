@@ -1,0 +1,35 @@
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "title": {
+          "type": "text"
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "channel_id": {
+          "type": "keyword"
+        },
+        "channel_name": {
+          "type": "keyword"
+        },
+        "video_id": {
+          "type": "keyword"
+        },
+        "playlist_id": {
+          "type": "keyword"
+        },
+        "rating": {
+          "type": "float"
+        },
+        "views": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

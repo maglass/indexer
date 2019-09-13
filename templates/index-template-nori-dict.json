@@ -1,0 +1,102 @@
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "title": {
+          "type": "text",
+          "analyzer": "title-analyzer"
+        },
+        "type": {
+          "type": "keyword"
+        },
+        "channel_id": {
+          "type": "keyword"
+        },
+        "channel_name": {
+          "type": "keyword"
+        },
+        "video_id": {
+          "type": "keyword"
+        },
+        "playlist_id": {
+          "type": "keyword"
+        },
+        "rating": {
+          "type": "float"
+        },
+        "views": {
+          "type": "integer"
+        },
+        "length": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "settings": {
+    "index": {
+      "analysis": {
+        "analyzer": {
+          "title-analyzer": {
+            "type": "custom",
+            "tokenizer": "compound_dict_tokenizer",
+            "filter": [
+              "lowercase",
+              "synonym_dict_filter",
+              "pos_filter"
+            ]
+          }
+        },
+        "tokenizer": {
+          "compound_dict_tokenizer": {
+            "type": "nori_tokenizer",
+            "decompound_mode": "discard",
+            "user_dictionary": "dictionaries/compound.txt"
+          }
+        },
+        "filter": {
+          "synonym_dict_filter": {
+            "type": "synonym",
+            "ignore_case": true,
+            "synonyms_path": "dictionaries/synonyms.txt"
+          },
+          "pos_filter": {
+            "type": "nori_part_of_speech",
+            "stoptags": [
+              "E",
+              "IC",
+              "J",
+              "MAG",
+              "MM",
+              "NA",
+              "NR",
+              "SC",
+              "SE",
+              "SF",
+              "SH",
+              "SL",
+              "SN",
+              "SP",
+              "SSC",
+              "SSO",
+              "SY",
+              "UNA",
+              "UNKNOWN",
+              "VA",
+              "VCN",
+              "VCP",
+              "VSV",
+              "VV",
+              "VX",
+              "XPN",
+              "XR",
+              "XSA",
+              "XSN",
+              "XSV"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
